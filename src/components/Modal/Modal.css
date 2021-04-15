@@ -14,13 +14,43 @@
 }
 
 .ModalOpen{
-    /*display block or none avoid any animation to happen with transition*/
-    opacity: 1;
-    transform: translateY(0);
+    /*The forwards means that the animation is not repeated but that it finishes*/
+    animation: openModal 0.4s ease-out forwards;
 }
 
 .ModalClosed{
-    /*display block or none avoid any animation to happen with transition*/
-    opacity: 0;
-    transform: translateY(-100%);
+    /*The forwards means that the animation is not repeated but that it finishes*/
+    animation: closeModal 0.4s ease-out forwards;
+}
+
+@keyframes openModal {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50%{
+        opacity: 1;
+        /*To make it bounce*/
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeModal {
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50%{
+        opacity: 1;
+        /*To make it bounce*/
+        transform: translateY(50%);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
 }
