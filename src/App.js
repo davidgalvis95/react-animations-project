@@ -45,6 +45,16 @@ class App extends Component {
                         }}/>
                     )}
                 </Transition>
+                {/*instead of passing the state in the component we now pass it in the in prop which is the one that know whether the component is entering or exiting*/}
+                <Transition
+                    in={this.state.modalIsOpen}
+                    timeout={400}
+                    mountOnEnter
+                    unmountOnExit>
+                    {state => (
+                        <Modal show={state} closed={this.closeModal}/>
+                    )}
+                </Transition>
                 {/*This solution is not complete at all because the null happens before the closed gets executed (it is rendered before)*/}
                 {this.state.modalIsOpen? <Modal show={this.state.modalIsOpen} closed={this.closeModal}/>: null}
                 {this.state.modalIsOpen?<Backdrop show={this.state.modalIsOpen}/>: null}
