@@ -14,12 +14,18 @@ const animationTiming = {
 const modal = (props) => {
     //this new CSSTransition avoid us to manually add the classes when an animation has to happen
     //instead it does respect the original class name, but adds the new ones based on the entering-active or exiting-active words
+    //even we can customize it with our own css classes
     return (<CSSTransition
         in={props.show}
         timeout={animationTiming}
         mountOnEnter
         unmountOnExit
-        classNames="fade-slide">
+        classNames={{
+            enter: '',
+            enterActive: 'ModalOpen',
+            exitActive: 'ModalClosed',
+            exit: ''
+        }}>
                 <div className="Modal">
                     <h1>A Modal</h1>
                     <button className="Button" onClick={props.closed}>Dismiss</button>
