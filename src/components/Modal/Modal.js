@@ -15,7 +15,13 @@ const modal = (props) => {
         in={props.show}
         timeout={animationTiming}
         mountOnEnter
-        unmountOnExit>
+        unmountOnExit
+        onEnter={() => console.log('onEnter')}
+        onEntering={() => console.log('onEntering')}
+        onEntered={() => console.log('onEntered')}
+        onExit={() => console.log('onExit')}
+        onExiting={() => console.log('onExiting')}
+        onExited={() => console.log('onExited')}>
         {state => {
             const cssClasses = ['Modal', state === 'entering' ? 'ModalOpen' : (state === 'exiting' ? 'ModalClosed' : null)];
             return (
