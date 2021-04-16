@@ -1,12 +1,19 @@
 import React from 'react';
+//THIS IS THE PACKAGE TO CREATE FANCY ANIMATIONS IN CSS AND REACT
 import Transition from 'react-transition-group/Transition';
 
 import './Modal.css';
 
+//we can create JS objects to add to the animation timing either to enter or to exit
+const animationTiming = {
+    enter: 400,
+    exit: 1000
+}
+
 const modal = (props) => {
     return (<Transition
         in={props.show}
-        timeout={400}
+        timeout={animationTiming}
         mountOnEnter
         unmountOnExit>
         {state => {

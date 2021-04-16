@@ -20,7 +20,8 @@
 
 .ModalClosed{
     /*The forwards means that the animation is not repeated but that it finishes*/
-    animation: closeModal 0.4s ease-out forwards;
+    /*This time has to be consistent with the object we created for the Transition component animation*/
+    animation: closeModal 1s ease-out forwards;
 }
 
 @keyframes openModal {
